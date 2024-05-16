@@ -33,10 +33,10 @@ This dataset shows the extent to which fossil fuel prices paid by consumers do n
 
 <!-- List of work packages ordered sequentially, each pointing to an issue with more details. -->
 
-1. Brainstorming for project topic [#1][i1]
-2. Searching for suitable dataset [#2][i2]
-3. Writing initial project plan [#3][i3]
-4. Retrieving data from data source [#4][i4]
+1. Exploring project topic ideas [#1][i1]
+2. Identifying appropriate datasets [#2][i2]
+3. Outlining the initial project roadmap [#3][i3]
+4. Extracting data from the source repository [#4][i4]
 
 [i1]: https://github.com/rashedrana/rana-made/issues/1
 [i2]: https://github.com/rashedrana/rana-made/issues/2
