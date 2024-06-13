@@ -1,0 +1,82 @@
+pipeline temperaturePipeline {
+    extractTemperatures
+        -> pickFile
+        -> interpretTextFile
+        -> interpretCSV
+        -> renameCol1
+        -> renameCol2
+        -> interpretTable
+        -> transformTemperature
+        -> transformBatteryTemp
+        -> loadData;
+
+    block extractTemperatures oftype GTFSExtractor {
+        url: "https://www.mowesta.com/data/measure/mowesta-dataset-20221107.zip";
+    }
+    block pickFile oftype FilePicker {
+        path: "/data.csv";
+    }
+
+    block interpretTextFile oftype TextFileInterpreter { }
+    block interpretCSV oftype CSVInterpreter {
+        delimiter: ";";
+        enclosing: '';
+    }
+
+    block renameCol1 oftype CellWriter {
+        at: range A1:E1;
+        write: ["id", "producer", "model", "month", "temperature"];
+    }
+    block renameCol2 oftype CellWriter {
+        at: cell J1;
+        write: ["battery_temperature"];
+    }
+    constraint posIntConst oftype RangeConstraint {
+        lowerBound: 1;
+        lowerBoundInclusive: true;
+    }
+    valuetype PositiveIntType oftype integer {
+        constraints: [posIntConst,];
+    }
+    constraint monthConst oftype RangeConstraint {
+        lowerBound: 1;
+        lowerBoundInclusive: true;
+        upperBound: 12;
+        upperBoundInclusive: true;
+    }
+    valuetype MonthType oftype integer {
+        constraints: [monthConst,];
+    }
+    block transformTemperature oftype TableTransformer {
+        inputColumns: ["temperature"];
+        outputColumn: "temperature";
+        use: celToFahr;
+    }
+    block transformBatteryTemp oftype TableTransformer {
+        inputColumns: ["battery_temperature"];
+        outputColumn: "battery_temperature";
+        use: celToFahr;
+    }
+    transform celToFahr {
+        from c oftype decimal;
+        to f oftype decimal;
+        f:  (c * 9/5) + 32;
+    }
+
+    block interpretTable oftype TableInterpreter {
+        header: true;
+        columns:[
+            "id" oftype PositiveIntType,
+            "producer" oftype text,
+            "model" oftype text,
+            "month" oftype MonthType,
+            "temperature" oftype decimal,
+            "battery_temperature" oftype decimal
+        ];
+    }
+
+    block loadData oftype SQLiteLoader {
+        table: "temperatures";
+        file: "./temperatures.sqlite";
+    }
+}
