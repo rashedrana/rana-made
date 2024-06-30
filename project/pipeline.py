@@ -23,12 +23,13 @@ def save(data, path, file, table):
         conn = sqlite3.connect(path+file)
         data.to_sql(table, conn, if_exists='replace', index=False)
         conn.close()
+        return [path+file, table]
     
     except:
         conn = sqlite3.connect("../data/"+file)
         data.to_sql(table, conn, if_exists='replace', index=False)
         conn.close()
-
+        return [path+file, table]
 
 def main():
     url1 = "https://opendata.arcgis.com/datasets/7ba962035bb548bb9893add2b5491896_0.csv"
@@ -48,7 +49,8 @@ def main():
     targetedPath = "./data/" 
     fileName = "Data.sqlite"
     dbName = "CO2Emissions_FossilFuel"
-    save(finalData, targetedPath, fileName, dbName)
+    
+    return save(finalData, targetedPath, fileName, dbName)
 
 if __name__ == "__main__":
     main()
