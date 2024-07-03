@@ -80,18 +80,7 @@ years = ['F2015_C', 'F2016_C', 'F2017_C', 'F2018_C', 'F2019_C', 'F2020_C', 'F202
 # Convert wide format data to long format for easier manipulation
 long_data = pd.melt(filtered_data, id_vars=['Country', 'ISO3'], value_vars=years, var_name='Year', value_name='TradeBalance')
 
-# GDP Correlation with Trade Balance (assuming `GDP` column is available in the dataset)
-# Since `GDP` is not present in the dataset, this part is commented out.
-# If `GDP` column is available, uncomment and adjust accordingly.
 
-# GDP Correlation with Trade Balance
-# print("GDP Correlation with Trade Balance:")
-# for country in countries:
-#     country_data = filtered_data[filtered_data['ISO3'] == country]
-#     correlation_gdp = country_data['GDP'].corr(country_data[years].mean(axis=1))
-#     print(f"Correlation between GDP and Trade Balance for {country}: {correlation_gdp:.2f}")
-
-# Trade Balance Analysis
 print("Trade Balance Analysis:")
 for country in countries:
     country_data = long_data[long_data['ISO3'] == country]
