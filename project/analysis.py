@@ -74,7 +74,6 @@ plt.show()
 countries = ["TUR", "LTU", "ARG", "IND", "LUT", "JPN"]
 filtered_data = data[data['ISO3'].isin(countries)]
 
-
 years = ['F2015_C', 'F2016_C', 'F2017_C', 'F2018_C', 'F2019_C', 'F2020_C', 'F2021_C']
 
 # Convert wide format data to long format for easier manipulation
