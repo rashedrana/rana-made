@@ -6,6 +6,7 @@ import pipeline
 dataP = pipeline.main()
 
 conn = sqlite3.connect(dataP[0])
+
 # Query to select all data from the CO2Emissions_FossilFuel table
 data_query = f'''
 SELECT	T1.Country_C [Country],
