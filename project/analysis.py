@@ -99,4 +99,3 @@ rankings = pd.DataFrame(index=years, columns=countries)
 for year in years:
     rankings.loc[year] = filtered_data.set_index('ISO3')[year].rank(ascending=False)
 print(rankings)
-
