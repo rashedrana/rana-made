@@ -18,8 +18,7 @@ class Test(unittest.TestCase):
             
         except Exception as e:
             raise
-    
-    
+
     def setUp(self):
         if(self.path is not None and len(self.path) > 0):
             self.conn = sqlite3.connect(self.path)
