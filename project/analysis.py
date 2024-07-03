@@ -92,15 +92,6 @@ for country in countries:
     plt.grid(True)
     plt.show()
 
-# Percentage Change in Trade Balance
-print("\nPercentage Change in Trade Balance from 2015 to 2021:")
-percentage_change = {}
-for country in countries:
-    country_data = filtered_data[filtered_data['ISO3'] == country]
-    initial_value = country_data['F2015_C'].values[0]
-    final_value = country_data['F2021_C'].values[0]
-    percentage_change[country] = ((final_value - initial_value) / initial_value) * 100
-print(percentage_change)
 
 # Ranking Countries by Trade Balance
 print("\nRanking Countries by Trade Balance:")
