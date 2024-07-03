@@ -67,9 +67,6 @@ plt.grid(True)
 plt.legend(title='Country')
 plt.show()
 
-
-
-
 # Filter data for the six countries of interest
 countries = ["TUR", "LTU", "ARG", "IND", "LUT", "JPN"]
 filtered_data = data[data['ISO3'].isin(countries)]
