@@ -64,6 +64,7 @@ years = ['F2015_C', 'F2016_C', 'F2017_C', 'F2018_C', 'F2019_C', 'F2020_C', 'F202
 
 long_data = pd.melt(filtered_data, id_vars=['Country', 'ISO3'], value_vars=years, var_name='Year', value_name='TradeBalance')
 
+# Trade Balance Analysis
 print("Trade Balance Analysis:")
 for country in countries:
     country_data = long_data[long_data['ISO3'] == country]
@@ -74,6 +75,7 @@ for country in countries:
     plt.ylabel('Trade Balance (Percent of GDP)')
     plt.grid(True)
     plt.show()
+
 # Ranking Countries by Trade Balance
 print("\nRanking Countries by Trade Balance:")
 rankings = pd.DataFrame(index=years, columns=countries)
