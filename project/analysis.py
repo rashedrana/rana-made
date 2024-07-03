@@ -44,7 +44,6 @@ conn.close()
 # List of ISO3 country codes for the countries of interest
 countries = ["TUR", "LTU", "ARG", "IND", "LUT", "JPN"]
 
-# Filter the data for the selected countries
 filtered_data = data[data['ISO3'].isin(countries)]
 
 years = ['F2015_C', 'F2016_C', 'F2017_C', 'F2018_C', 'F2019_C', 'F2020_C', 'F2021_C']
