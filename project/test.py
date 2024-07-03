@@ -57,7 +57,6 @@ class Test(unittest.TestCase):
             
             self.assertIsNotNone(table_exists, f"This table '{self.table}' is not available.")
             
-    
             
     @classmethod
     def tearDownClass(cls):
