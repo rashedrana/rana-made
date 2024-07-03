@@ -47,7 +47,6 @@ countries = ["TUR", "LTU", "ARG", "IND", "LUT", "JPN"]
 # Filter the data for the selected countries
 filtered_data = data[data['ISO3'].isin(countries)]
 
-# Select relevant columns for plotting
 years = ['F2015_C', 'F2016_C', 'F2017_C', 'F2018_C', 'F2019_C', 'F2020_C', 'F2021_C']
 
 plt.figure(figsize=(12, 8))
