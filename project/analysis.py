@@ -35,7 +35,6 @@ WHERE	T1.ISO3 IN ("TUR", "LTU", "ARG", "IND", "LUT", "JPN");
 
 data = pd.read_sql(data_query, conn)
 
-# Close the connection
 conn.close()
 
 # Filter data for a specific country (e.g., "Argentina")
