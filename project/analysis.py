@@ -4,7 +4,6 @@ import matplotlib.pyplot as plt
 import pipeline
 
 dataP = pipeline.main()
-
 conn = sqlite3.connect(dataP[0])
 
 data_query = f'''
