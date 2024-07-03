@@ -34,7 +34,6 @@ class Test(unittest.TestCase):
     def test_pipeline(self):
         self.assertIsNotNone(self.path, f"Pipeline Error.")  
     
-    
     def test_fileExists(self):
         if(self.path is None):
             self.assertIsNotNone(self.path, f"This file is not available.")
@@ -42,7 +41,6 @@ class Test(unittest.TestCase):
         else:
             self.assertTrue(os.path.exists(self.path), f"This file '{self.path}' is not available.")
 
-    
     def test_tableExists(self):
         if(self.table is None):
             self.assertIsNotNone(self.table, f"This table is not available.")
