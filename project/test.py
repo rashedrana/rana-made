@@ -31,7 +31,6 @@ class Test(unittest.TestCase):
         if(self.conn is not None):
             self.conn.close()
      
-     
     def test_pipeline(self):
         self.assertIsNotNone(self.path, f"Pipeline Error.")  
     
