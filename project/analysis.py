@@ -37,8 +37,6 @@ data = pd.read_sql(data_query, conn)
 
 conn.close()
 
-# Filter data for a specific country (e.g., "Argentina")
-# List of ISO3 country codes for the countries of interest
 countries = ["TUR", "LTU", "ARG", "IND", "LUT", "JPN"]
 
 filtered_data = data[data['ISO3'].isin(countries)]
