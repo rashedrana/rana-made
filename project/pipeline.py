@@ -17,6 +17,7 @@ def dropNull(data):
 def dataMerge(t1, t2, key, t1S, t2S):
     return pd.merge(t1, t2, how ='left', on = key, suffixes=(t1S, t2S))
 
+
 def save(data, path, file, table):
     try:
         conn = sqlite3.connect(path+file)
