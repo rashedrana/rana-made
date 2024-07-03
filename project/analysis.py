@@ -53,7 +53,6 @@ years = ['F2015_C', 'F2016_C', 'F2017_C', 'F2018_C', 'F2019_C', 'F2020_C', 'F202
 # Create a plot
 plt.figure(figsize=(12, 8))
 
-# Plot data for each country
 for country in countries:
     country_data = filtered_data[filtered_data['ISO3'] == country]
     emissions = country_data[years].mean()  # Assuming multiple rows per country, take the mean
