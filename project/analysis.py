@@ -59,7 +59,6 @@ for country in countries:
     emissions = country_data[years].mean()  # Assuming multiple rows per country, take the mean
     plt.plot(years, emissions, marker='o', linestyle='-', label=country)
 
-# Configure the plot
 plt.title('CO2 Emissions from Fossil Fuel (2015-2021)')
 plt.xlabel('Year')
 plt.ylabel('CO2 Emissions (Millions of metric tons)')
