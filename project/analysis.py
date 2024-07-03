@@ -75,7 +75,6 @@ for country in countries:
     plt.grid(True)
     plt.show()
 
-
 # Ranking Countries by Trade Balance
 print("\nRanking Countries by Trade Balance:")
 rankings = pd.DataFrame(index=years, columns=countries)
