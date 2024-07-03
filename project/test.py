@@ -27,7 +27,6 @@ class Test(unittest.TestCase):
         else:
             self.conn = self.cursor = None
         
-    
     def tearDown(self):
         if(self.conn is not None):
             self.conn.close()
