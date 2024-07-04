@@ -30,14 +30,14 @@ FROM	(
 					AND Unit_F = 'Percent of GDP' 
 					AND CTS_Name_C = 'CO2 Emissions Embodied in Trade; Trade Balance'
 		) T1
-WHERE	T1.ISO3 IN ("TUR", "LTU", "ARG", "IND", "LUT", "JPN");
+WHERE	T1.ISO3 IN ("TUR", "LTU", "ARG", "IND", "JPN");
 '''
 
 data = pd.read_sql(data_query, conn)
 
 conn.close()
 
-countries = ["TUR", "LTU", "ARG", "IND", "LUT", "JPN"]
+countries = ["TUR", "LTU", "ARG", "IND", "JPN"]
 
 filtered_data = data[data['ISO3'].isin(countries)]
 
@@ -57,13 +57,14 @@ plt.grid(True)
 plt.legend(title='Country')
 plt.show()
 
-countries = ["TUR", "LTU", "ARG", "IND", "LUT", "JPN"]
+countries = ["TUR", "LTU", "ARG", "IND", "JPN"]
 filtered_data = data[data['ISO3'].isin(countries)]
 
 years = ['F2015_C', 'F2016_C', 'F2017_C', 'F2018_C', 'F2019_C', 'F2020_C', 'F2021_C']
 
 long_data = pd.melt(filtered_data, id_vars=['Country', 'ISO3'], value_vars=years, var_name='Year', value_name='TradeBalance')
 
+# Trade Balance Analysis
 print("Trade Balance Analysis:")
 for country in countries:
     country_data = long_data[long_data['ISO3'] == country]
@@ -74,6 +75,7 @@ for country in countries:
     plt.ylabel('Trade Balance (Percent of GDP)')
     plt.grid(True)
     plt.show()
+
 # Ranking Countries by Trade Balance
 print("\nRanking Countries by Trade Balance:")
 rankings = pd.DataFrame(index=years, columns=countries)
